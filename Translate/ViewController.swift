@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         
         //var data = NSMutableData()var data = NSMutableData()
         
+        
+        
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.center = view.center
         view.addSubview(indicator)
@@ -47,16 +49,32 @@ class ViewController: UIViewController {
         
         var result = "<Translation Error>"
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
+
+        
+        // Old Code 
+        //URLSession.dataTaskWithRequest(request, queue: OperationQueue.main)
+
+        let config = URLSessionConfiguration.default
+        
+        let session = URLSession(configuration: config)
+        
+        //let sessionTask = URLSession.shared
+        
+        
+        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+            //response, data, error in
             
             indicator.stopAnimating()
             
-            if let httpResponse = response as? HTTPURLResponse {
-                if(httpResponse.statusCode == 200){
+            if let httpResponse = response as? HTTPURLResponse
+            {
+                if(httpResponse.statusCode == 200)
+                {
                     
                     let jsonDict: NSDictionary!=(try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
                     
-                    if(jsonDict.value(forKey: "responseStatus") as! NSNumber == 200){
+                    if(jsonDict.value(forKey: "responseStatus") as! NSNumber == 200)
+                    {
                         let responseData: NSDictionary = jsonDict.object(forKey: "responseData") as! NSDictionary
                         
                         result = responseData.object(forKey: "translatedText") as! String
@@ -65,7 +83,9 @@ class ViewController: UIViewController {
                 
                 self.translatedText.text = result
             }
-        }
+        })
+        
+        task.resume()
         
     }
 }
