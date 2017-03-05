@@ -13,11 +13,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translatedText: UITextView!
     
+    var languages: [String] = ["French", "German", "Swedish"]
+    
+    
     //var data = NSMutableData()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,8 +53,6 @@ class ViewController: UIViewController {
         
         //var data = NSMutableData()var data = NSMutableData()
         
-        
-        
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.center = view.center
         view.addSubview(indicator)
@@ -49,22 +60,20 @@ class ViewController: UIViewController {
         
         var result = "<Translation Error>"
         
-
-        
         // Old Code 
         //URLSession.dataTaskWithRequest(request, queue: OperationQueue.main)
-
+     
+        
+        //New Code
         let config = URLSessionConfiguration.default
         
         let session = URLSession(configuration: config)
         
-        //let sessionTask = URLSession.shared
-        
-        
-        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-            //response, data, error in
+        let task = session.dataTask(with: request){
+        //, completionHandler: {(data, response, error) in
+            (data, response, error) in
             
-            indicator.stopAnimating()
+        indicator.stopAnimating()
             
             if let httpResponse = response as? HTTPURLResponse
             {
@@ -83,7 +92,8 @@ class ViewController: UIViewController {
                 
                 self.translatedText.text = result
             }
-        })
+            
+        }
         
         task.resume()
         
