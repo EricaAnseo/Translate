@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Remove keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
@@ -53,7 +54,8 @@ class ViewController: UIViewController {
         
         //var data = NSMutableData()var data = NSMutableData()
         
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = UIColor.purple
         indicator.center = view.center
         view.addSubview(indicator)
         indicator.startAnimating()
