@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translatedText: UITextView!
     
-    var languages: [String] = ["French", "German", "Swedish"]
+    var languages: [String] = ["Japanese", "German", "Swedish"]
     
     
     //var data = NSMutableData()
@@ -44,15 +44,13 @@ class ViewController: UIViewController {
         let str = textToTranslate.text
         let escapedStr = str?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
-        let langStr = ("en|fr").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let langStr = ("en|ja").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
         let urlStr:String = ("https://api.mymemory.translated.net/get?q="+escapedStr!+"&langpair="+langStr!)
         
         let url = URL(string: urlStr)
         
         let request = URLRequest(url: url!)// Creating Http Request
-        
-        //var data = NSMutableData()var data = NSMutableData()
         
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         indicator.color = UIColor.purple
@@ -62,17 +60,12 @@ class ViewController: UIViewController {
         
         var result = "<Translation Error>"
         
-        // Old Code 
-        //URLSession.dataTaskWithRequest(request, queue: OperationQueue.main)
-     
-        
         //New Code
         let config = URLSessionConfiguration.default
         
         let session = URLSession(configuration: config)
         
         let task = session.dataTask(with: request){
-        //, completionHandler: {(data, response, error) in
             (data, response, error) in
             
         indicator.stopAnimating()
@@ -92,7 +85,10 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                self.translatedText.text = result
+                DispatchQueue.main.sync()
+                {
+                    self.translatedText.text = result
+                }
             }
             
         }

@@ -43,12 +43,12 @@
                                 <rect key="frame" x="146" y="491" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.55265817444644583" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <state key="normal" title="Translate">
                                     <color key="titleColor" red="0.30578350266367643" green="0.26561640761665034" blue="0.37021433246073299" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="translate:" destination="BYZ-38-t0r" eventType="touchDown" id="0HG-2K-PZM"/>
+                                    <action selector="translate:" destination="BYZ-38-t0r" eventType="touchDown" id="wip-Oe-rIn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FX-QC-fcR">
@@ -85,8 +85,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textToTranslate" destination="dii-Vg-90N" id="6As-mt-6qz"/>
-                        <outlet property="translatedText" destination="LaV-KV-DTJ" id="qM9-w4-LVi"/>
+                        <outlet property="textToTranslate" destination="dii-Vg-90N" id="YmT-SZ-OJ0"/>
+                        <outlet property="translatedText" destination="LaV-KV-DTJ" id="8fg-iW-X5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
