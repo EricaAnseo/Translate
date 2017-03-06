@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0780FDB01E6DF41E007CA317 /* LoadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */; };
 		07EA3C561E6C64A700036D10 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EA3C4C1E6C64A700036D10 /* OpenSans-Bold.ttf */; };
 		07EA3C571E6C64A700036D10 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EA3C4D1E6C64A700036D10 /* OpenSans-BoldItalic.ttf */; };
 		07EA3C581E6C64A700036D10 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EA3C4E1E6C64A700036D10 /* OpenSans-ExtraBold.ttf */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen.png; sourceTree = "<group>"; };
 		07EA3C4C1E6C64A700036D10 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		07EA3C4D1E6C64A700036D10 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		07EA3C4E1E6C64A700036D10 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				FFD2F9BA1BD1101A00F54057 /* Main.storyboard */,
 				FFD2F9BD1BD1101A00F54057 /* Assets.xcassets */,
 				FFD2F9BF1BD1101A00F54057 /* LaunchScreen.storyboard */,
+				0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */,
 				FFD2F9C21BD1101A00F54057 /* Info.plist */,
 			);
 			path = Translate;
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0780FDB01E6DF41E007CA317 /* LoadingScreen.png in Resources */,
 				07EA3C5E1E6C64A700036D10 /* OpenSans-Semibold.ttf in Resources */,
 				07EA3C5F1E6C64A700036D10 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				FFD2F9C11BD1101A00F54057 /* LaunchScreen.storyboard in Resources */,
