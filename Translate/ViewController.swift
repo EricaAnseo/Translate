@@ -13,7 +13,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var selectLang: UIPickerView!
-    @IBOutlet weak var langLabel: UILabel!
     @IBOutlet weak var langSelector: UITextField!
     var languages: [String] = ["French", "Irish", "Japanese", "Korean"]
     var langSelected = ""
@@ -34,11 +33,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //Code for picker
         self.selectLang.dataSource = self
         self.selectLang.delegate = self
+        langSelector.delegate = self
+        
         //Set a default value for the picker
         selectLang.selectRow(defaultLang, inComponent:0, animated:false)
         langSelector.text = languages[defaultLang]
         
         self.selectLang.isHidden = true;
+        
+        //Done button on Keyboard
+        //Create toolbar
+        //init toolbar
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
+        //create left side empty space so that done button set on right side
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(ViewController.dismissKeyboard))
+        //array of BarButtonItems
+        var arr = [UIBarButtonItem]()
+        arr.append(flexSpace)
+        arr.append(doneBtn)
+        toolbar.setItems(arr, animated: false)
+        toolbar.sizeToFit()
+        //setting toolbar as inputAccessoryView
+        self.langSelector.inputAccessoryView = toolbar
+        self.textToTranslate.inputAccessoryView = toolbar
+        
+        //self.textToTranslate.inputView = selectLang
         
     }
     
@@ -67,7 +87,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        langLabel.text = languages[row]
         langSelector.text = languages[row]
         self.selectLang.isHidden = true;
     }
@@ -78,6 +97,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.selectLang.isHidden = false
         }
     }
+
     
     //Translates Function
     @IBAction func translate(_ sender: AnyObject) {
@@ -97,7 +117,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         default:
             langSelected = "fr"
-            langLabel.text = languages[defaultLang]
+            langSelector.text = languages[defaultLang]
             
         }
         
