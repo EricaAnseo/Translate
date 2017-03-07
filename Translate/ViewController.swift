@@ -15,7 +15,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var selectLang: UIPickerView!
     @IBOutlet weak var langLabel: UILabel!
     var languages: [String] = ["French", "Irish", "Japanese", "Korean"]
-    var langSelected = "fr"
+    var langSelected = ""
+    let defaultLang = 0
     
     
     //var data = NSMutableData()
@@ -30,8 +31,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         view.addGestureRecognizer(tap)
         
         //Code for picker
-        self.selectLang.dataSource = self;
-        self.selectLang.delegate = self;
+        self.selectLang.dataSource = self
+        self.selectLang.delegate = self
+        //Set a default value for the picker
+        selectLang.selectRow(defaultLang, inComponent:0, animated:false)
         
     }
     
@@ -62,23 +65,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         langLabel.text = languages[row]
         
-        if(row == 0)
-        {
-            langSelected = "fr"
-        }
-        else if(row == 1)
-        {
-            langSelected = "ga"
-        }
-        else if(row == 2)
-        {
-            langSelected = "ja"
-        }
-            
-        else if(row == 3)
-        {
-            langSelected = "ko"
-        }
+        
         
     }
     
@@ -87,6 +74,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let str = textToTranslate.text
         let escapedStr = str?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        switch selectLang.selectedRow(inComponent: 0){
+        case 0:
+            langSelected = "fr"
+        case 1:
+            langSelected = "ga"
+        case 2:
+            langSelected = "ja"
+        case 3:
+            langSelected = "ko"
+            
+        default:
+            langSelected = "fr"
+            langLabel.text = languages[defaultLang]
+            
+        }
         
         let langStr = ("en|"+langSelected).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         
