@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var selectLang: UIPickerView!
     @IBOutlet weak var langLabel: UILabel!
+    @IBOutlet weak var langSelector: UITextField!
     var languages: [String] = ["French", "Irish", "Japanese", "Korean"]
     var langSelected = ""
     let defaultLang = 0
@@ -35,6 +36,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.selectLang.delegate = self
         //Set a default value for the picker
         selectLang.selectRow(defaultLang, inComponent:0, animated:false)
+        langSelector.text = languages[defaultLang]
+        
+        self.selectLang.isHidden = true;
         
     }
     
@@ -64,9 +68,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         langLabel.text = languages[row]
-        
-        
-        
+        langSelector.text = languages[row]
+        self.selectLang.isHidden = true;
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if(textField == self.langSelector)
+        {
+            self.selectLang.isHidden = false
+        }
     }
     
     //Translates Function
