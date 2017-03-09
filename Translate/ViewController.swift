@@ -22,29 +22,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Remove keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
-        
-        //Code for picker
         self.selectLang.dataSource = self
         self.selectLang.delegate = self
         langSelector.delegate = self
+        textToTranslate.delegate = self
+        self.selectLang.isHidden = true;
+        
+        //On Tap gesture, call function
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
+        
+        //Assign the tap gesture to the view
+        view.addGestureRecognizer(tap)
         
         //Set a default value for the picker
         selectLang.selectRow(defaultLang, inComponent:0, animated:false)
         langSelector.text = languages[defaultLang]
         
-        self.selectLang.isHidden = true;
-        
         //Done button on Keyboard
         //Create toolbar
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
+        
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(ViewController.dismissKeyboard))
+        
         let clearBtn: UIBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(ViewController.textViewDidBeginEditing(_:)))
+        
         //array of BarButtonItems
         var arr = [UIBarButtonItem]()
         arr.append(clearBtn)
@@ -52,13 +56,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         arr.append(doneBtn)
         toolbar.setItems(arr, animated: false)
         toolbar.sizeToFit()
+        
         //setting toolbar as inputAccessoryView
         self.langSelector.inputAccessoryView = toolbar
         self.textToTranslate.inputAccessoryView = toolbar
         
-        textToTranslate.delegate = self
         textToTranslate.text = "Type text here to translate"
-        
         
         //self.textToTranslate.inputView = selectLang
         
