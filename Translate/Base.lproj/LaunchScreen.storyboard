@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,15 +27,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LoadingScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="kwB-A7-b4Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="kwB-A7-b4Z">
                                 <rect key="frame" x="0.0" y="0.0" width="388" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cvS-kb-dd1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Buo-I8-Y7K"/>
-                            <constraint firstItem="cvS-kb-dd1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tz7-pK-aPy"/>
+                            <constraint firstItem="kwB-A7-b4Z" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="9qr-yb-haT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kwB-A7-b4Z" secondAttribute="trailing" constant="-29" id="AbZ-7L-8Vu"/>
+                            <constraint firstItem="kwB-A7-b4Z" firstAttribute="centerY" secondItem="cvS-kb-dd1" secondAttribute="centerY" id="JjI-ex-9Wh"/>
+                            <constraint firstItem="kwB-A7-b4Z" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Kww-OS-1cR"/>
+                            <constraint firstItem="kwB-A7-b4Z" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MLC-kH-Uhj"/>
+                            <constraint firstItem="cvS-kb-dd1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cgG-Ge-HMh"/>
                         </constraints>
                     </view>
                 </viewController>

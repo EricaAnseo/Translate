@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translatedText: UITextView!
@@ -17,9 +17,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var languages: [String] = ["French", "Irish", "Japanese", "Korean"]
     var langSelected = ""
     let defaultLang = 0
-    
-    
-    //var data = NSMutableData()
     
     
     override func viewDidLoad() {
@@ -43,7 +40,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         //Done button on Keyboard
         //Create toolbar
-        //init toolbar
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30))
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -58,6 +54,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.langSelector.inputAccessoryView = toolbar
         self.textToTranslate.inputAccessoryView = toolbar
         
+        textToTranslate.delegate = self
+        textToTranslate.text = "Type the text you want to translate here"
+        
+        
         //self.textToTranslate.inputView = selectLang
         
     }
@@ -66,6 +66,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func dismissKeyboard()
     {
         view.endEditing(true)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textToTranslate.text = ""
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,7 +101,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.selectLang.isHidden = false
         }
     }
-
+    
     
     //Translates Function
     @IBAction func translate(_ sender: AnyObject) {
@@ -145,7 +149,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let task = session.dataTask(with: request){
             (data, response, error) in
             
-        indicator.stopAnimating()
+            indicator.stopAnimating()
             
             if let httpResponse = response as? HTTPURLResponse
             {
@@ -163,8 +167,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
                 
                 DispatchQueue.main.sync()
-                {
-                    self.translatedText.text = result
+                    {
+                        self.translatedText.text = result
                 }
             }
             
