@@ -14,7 +14,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var selectLang: UIPickerView!
     @IBOutlet weak var currentLangLabel: UILabel!
-    //@IBOutlet weak var langSelector: UITextField!
     var languages: [String] = ["French", "Irish", "Japanese", "Korean"]
     var langCode = ""
     let defaultLang = 0
@@ -25,19 +24,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.selectLang.dataSource = self
         self.selectLang.delegate = self
-        //langSelector.delegate = self
-        textToTranslate.delegate = self
-        //self.selectLang.isHidden = true;
+        self.textToTranslate.delegate = self
         
         //On Tap gesture, call function
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(ViewController.dismissKeyboard))
-        
-        //Assign the tap gesture to the view
-        view.addGestureRecognizer(tap)
-        
-        //Set a default value for the picker
-        selectLang.selectRow(defaultLang, inComponent:0, animated:false)
-        currentLangLabel.text = languages[defaultLang]
         
         //Done button on Keyboard
         //Create toolbar
@@ -58,10 +48,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         toolbar.setItems(arr, animated: false)
         toolbar.sizeToFit()
         
-        //setting toolbar as inputAccessoryView
-        self.textToTranslate.inputAccessoryView = toolbar
+        //Assign the tap gesture to the view
+        view.addGestureRecognizer(tap)
+        
+        //Set a default value for the picker
+        selectLang.selectRow(defaultLang, inComponent:0, animated:false)
+        currentLangLabel.text = languages[defaultLang]
         
         textToTranslate.text = "Click here to translate"
+        
+        //setting toolbar as inputAccessoryView
+        self.textToTranslate.inputAccessoryView = toolbar
     }
     
     override func didReceiveMemoryWarning() {
