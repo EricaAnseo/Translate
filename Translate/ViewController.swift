@@ -142,8 +142,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let task = session.dataTask(with: request){
             (data, response, error) in
             
-            indicator.stopAnimating()
-            
             if let httpResponse = response as? HTTPURLResponse
             {
                 if(httpResponse.statusCode == 200)
@@ -162,6 +160,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 DispatchQueue.main.sync()
                     {
                         self.translatedText.text = result
+                        indicator.stopAnimating()
                 }
             }
             
