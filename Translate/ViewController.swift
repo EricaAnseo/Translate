@@ -44,8 +44,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(ViewController.dismissKeyboard))
+        let clearBtn: UIBarButtonItem = UIBarButtonItem(title: "Clear", style: .done, target: self, action: #selector(ViewController.textViewDidBeginEditing(_:)))
         //array of BarButtonItems
         var arr = [UIBarButtonItem]()
+        arr.append(clearBtn)
         arr.append(flexSpace)
         arr.append(doneBtn)
         toolbar.setItems(arr, animated: false)
@@ -55,7 +57,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.textToTranslate.inputAccessoryView = toolbar
         
         textToTranslate.delegate = self
-        textToTranslate.text = "Type the text you want to translate here"
+        textToTranslate.text = "Type text here to translate"
         
         
         //self.textToTranslate.inputView = selectLang
