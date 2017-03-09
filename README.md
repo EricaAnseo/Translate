@@ -3,7 +3,7 @@ A simple iOS translation app written in Swift, using MyMemory Translate API (htt
 
 Used as a teaching assignment for students of Waterford Institute of Technology (http://www.wit.ie).
 
-This is a student project. The app has the following functionality:
+This is a student project. Translate has the following functionality:
 + Translates from English to 
     + French
     + Irish
@@ -15,8 +15,8 @@ This is a student project. The app has the following functionality:
     + 'Clear' the textfield or 
     + Hide the keyboard by clicking 'Done'
 + Has a custom Launch Screen
-+ Uses 'Open Sans', a custom font
-+ Incluses a custom App Icon added
++ Uses Googles Font - 'Open Sans'
++ Includes a custom App Icon added
 + Supported on the iPhone 6 and up
 
 
