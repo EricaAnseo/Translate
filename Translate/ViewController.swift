@@ -62,7 +62,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.textToTranslate.inputAccessoryView = toolbar
         
         textToTranslate.text = "Click here to translate"
-        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
