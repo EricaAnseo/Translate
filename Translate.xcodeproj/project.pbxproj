@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0758DA4A1E71B0F1006B03D6 /* triangleUpside.png in Resources */ = {isa = PBXBuildFile; fileRef = 0758DA491E71B0F1006B03D6 /* triangleUpside.png */; };
 		075D728D1E7195C400727411 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D728C1E7195C400727411 /* arrow.png */; };
 		075D728F1E719D0B00727411 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D728E1E719D0B00727411 /* triangle.png */; };
-		075D72911E719DE100727411 /* triangle-upside.png in Resources */ = {isa = PBXBuildFile; fileRef = 075D72901E719DE100727411 /* triangle-upside.png */; };
 		0780FDB01E6DF41E007CA317 /* LoadingScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */; };
 		07EA3C561E6C64A700036D10 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EA3C4C1E6C64A700036D10 /* OpenSans-Bold.ttf */; };
 		07EA3C571E6C64A700036D10 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07EA3C4D1E6C64A700036D10 /* OpenSans-BoldItalic.ttf */; };
@@ -29,9 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0758DA491E71B0F1006B03D6 /* triangleUpside.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangleUpside.png; sourceTree = "<group>"; };
 		075D728C1E7195C400727411 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		075D728E1E719D0B00727411 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
-		075D72901E719DE100727411 /* triangle-upside.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle-upside.png"; sourceTree = "<group>"; };
 		0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen.png; sourceTree = "<group>"; };
 		07EA3C4C1E6C64A700036D10 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		07EA3C4D1E6C64A700036D10 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 			children = (
 				075D728C1E7195C400727411 /* arrow.png */,
 				075D728E1E719D0B00727411 /* triangle.png */,
-				075D72901E719DE100727411 /* triangle-upside.png */,
+				0758DA491E71B0F1006B03D6 /* triangleUpside.png */,
 				0780FDAF1E6DF41E007CA317 /* LoadingScreen.png */,
 			);
 			name = Images;
@@ -197,7 +197,7 @@
 				07EA3C5B1E6C64A700036D10 /* OpenSans-Light.ttf in Resources */,
 				07EA3C571E6C64A700036D10 /* OpenSans-BoldItalic.ttf in Resources */,
 				07EA3C581E6C64A700036D10 /* OpenSans-ExtraBold.ttf in Resources */,
-				075D72911E719DE100727411 /* triangle-upside.png in Resources */,
+				0758DA4A1E71B0F1006B03D6 /* triangleUpside.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
